@@ -1,8 +1,8 @@
 <?php
-    $servidor = "localhost";
-    $usuario = "root";
-    $clave = "";
-    $BaseDeDatos = "mydb";
+    $servidor = "sql201.infinityfree.com";
+    $usuario = "if0_37659048";
+    $clave = "Key300106";
+    $BaseDeDatos = "if0_37659048_mydb";
 
     $conexion = mysqli_connect($servidor, $usuario, $clave, $BaseDeDatos);
 
