@@ -19,20 +19,6 @@ if (isset($_POST['registro'])) {
     //Preparar la consulta SQL con marcadores de posición
     $insertarDatos = "INSERT INTO usuario  (nombre, apellido, tipo_documento, num_documento, correo, contrasena, num_celular, tipo_usuario, fecha_nacimiento) VALUES ('$nombre', '$apellido', '$tipo_documento', '$num_documento', '$correo', '$contrasena', '$num_celular','$tipo_usuario', '$fecha_nacimiento')";
 
-
-    //Verificar que el numero de documento no se repita en la base de datos
-    $verificar_num_doc = mysqli_query($conexion, "SELECT * FROM usuario WHERE num_documento = '$num_documento'");
-
-    if (mysqli_num_rows($verificar_num_doc) > 0) {
-        echo
-        '<script>
-    alert("Este documento ya fue registrado por un usuario. Si es tu documeto, inicia sesion con los datos correspondientes");
-    window.location.href = "../registrarse.php";
-    </script>';
-
-        exit; //Detiene la ejecución del script y redirecciona al usuario a la pagina de registro
-    }
-
     //Verificar que el correo no se repita en la base de datos
     $verificar_correo = mysqli_query($conexion, "SELECT * FROM usuario WHERE correo = '$correo'");
 
@@ -43,20 +29,7 @@ if (isset($_POST['registro'])) {
                 window.location.href = "../registrarse.php";
             </script>';
 
-        exit;
-    }
-
-    //Verificar que el numero de celular no se repita en la base de datos
-    $verificar_num_cel = mysqli_query($conexion, "SELECT * FROM usuario WHERE num_celular = '$num_celular'");
-
-    if (mysqli_num_rows($verificar_num_cel) > 0) {
-        echo
-        '<script>
-                    alert("Este numero ya fue registrado por un usuario. Si es tu numero de celular, inicia sesion con los datos correspondientes");
-                    window.location.href = "../registrarse.php";
-                </script>';
-
-        exit; //Detiene la ejecución del script y redirecciona al usuario a la pagina de registro
+        exit;//Detiene la ejecución del script y redirecciona al usuario a la pagina de registro
     }
 
     //Ejecutar la consulta

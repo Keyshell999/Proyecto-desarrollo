@@ -39,7 +39,7 @@ if (isset($_SESSION['usuario'])) {
         <div class="mb-3 mt-3" id="tipo_usuario">
           <label for="tipo_usuario">Tipo de usuario</label>
           <br>
-          <select class="select-9" name="tipo_usuario">
+          <select class="select-9" name="tipo_usuario" required>
             <option selected disabled value="">--Selecciona tu tipo de usuario--</option>
             <option value="cliente">Cliente</option>
             <option value="profesional">Profesional</option>

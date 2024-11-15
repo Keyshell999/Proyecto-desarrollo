@@ -12,6 +12,7 @@ include "modelo/conexion.php";
   <link rel="stylesheet" href="css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/6454b76c85.js" crossorigin="anonymous"></script>
   <title>Registro de usuario</title>
 </head>
 
@@ -19,7 +20,7 @@ include "modelo/conexion.php";
 
   <div class="container mt-3">
     <h2><b>Crear usuario</b></h2>
-    <form class="row g-3 needs-validation" autocomplete="off" action="controlador/registro.php" method="POST" novalidate>
+    <form class="row g-3 needs-validation" id="validacion" autocomplete="off" action="controlador/registro.php" method="POST">
 
       <div class="container-flex">
         <div class="col-lg-4">
@@ -34,7 +35,7 @@ include "modelo/conexion.php";
         <div class="col-lg-4">
           <div class="mb-3 mt-3">
             <label for="validationDefault02" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="validationDefault02" placeholder="Ingresa tu nombre" name="apellido" required>
+            <input type="text" class="form-control" id="validationDefault02" placeholder="Ingresa tu apellido" name="apellido" required>
             <div class="valid-feedback">
               Looks good!
             </div>
@@ -49,7 +50,7 @@ include "modelo/conexion.php";
                 <option value="ced_extranjeria">C.E.</option>
                 <option value="pasaporte">P.B.</option>
               </select>
-              <input type="number" class="form-control" id="num" placeholder="Ingresa el numero de documento" name="num_documento">
+              <input type="number" class="form-control" id="num_limitado" min="1000000" max="2000000000" placeholder="Ingresa el numero de documento" name="num_documento" required>
             </div>
           </div>
         </div>
@@ -86,7 +87,7 @@ include "modelo/conexion.php";
           <div class="col-md-9 w-100">
             <div class="mb-3 mt-3">
               <label for="number">Ingresa tu numero de celular</label>
-              <input type="number" class="form-control" id="numero" placeholder="Número de telefono" name="num_celular">
+              <input type="number" class="form-control" id="num_limitado" min="1000000" max="5000000000" placeholder="Número de telefono" name="num_celular">
             </div>
           </div>
         </div>
@@ -97,6 +98,7 @@ include "modelo/conexion.php";
 
       <div class="container-flex">
         <input type="date" class="form-control" id="fecha" name="fecha_nacimiento">
+        <p id="error-message" style="color: red; display: none;">Debes ser mayor de 18 años.</p>
       </div>
 
       <div class="container-flex">
